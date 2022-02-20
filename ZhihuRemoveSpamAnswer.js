@@ -21,12 +21,12 @@
     }
 
     function Ana(){
-        var richContentList = document.getElementsByClassName("RichContent");
+        var richContentList = document.getElementsByClassName("RichContent-inner");
         for (var k = 0; k < richContentList.length; ++k) {
             var needRemove = false;
             var contentText = richContentList[k];
             var contentInnerText = "";
-            if(contentText.classList.contains('is-collapsed')) {
+            if(contentText.parentElement.classList.contains('is-collapsed')) {
                 contentInnerText = contentText.innerText.substring(contentText.innerText.indexOf('：') + 1);
             }else {
                 contentInnerText = contentText.innerText;
