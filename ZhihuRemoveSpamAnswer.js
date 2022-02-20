@@ -16,7 +16,9 @@
         Ana();
     }
 
-    Ana();
+    window.onload=function(){
+        Ana();
+    }
 
     function Ana(){
         var richContentList = document.getElementsByClassName("RichContent");
@@ -33,7 +35,7 @@
 
             if(needRemove) {
                 var contentEleTemp = contentText;
-                while (!contentEleTemp.classList.contains('TopstoryItem') && !contentEleTemp.classList.contains('List-item')){
+                while (!contentEleTemp.classList.contains('TopstoryItem') && !contentEleTemp.classList.contains('List-item') && !contentEleTemp.classList.contains('ContentItem') && !contentEleTemp.classList.contains('AnswerItem')){
                     contentEleTemp = contentEleTemp.parentNode;
                 }
                 contentEleTemp.parentNode.removeChild(contentEleTemp)
@@ -55,7 +57,6 @@
             }
             if(contentCount == 6){
                 return true;
-                break;
             }
         }
         return false;
