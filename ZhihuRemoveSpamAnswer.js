@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         屏蔽知乎无意义回答
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  屏蔽知乎无意义回答, 包括刷屏与大量复读的回答, 嘲讽类定型文等.
 // @author       ZjzMisaka
 // @match        https://www.zhihu.com/*
@@ -27,9 +27,9 @@
             var contentText = richContentList[k];
             var contentInnerText = "";
             if(contentText.parentElement.classList.contains('is-collapsed')) {
-                contentInnerText = contentText.innerText.substring(contentText.innerText.indexOf('：') + 1);
+                contentInnerText = contentText.innerText.substring(contentText.innerText.indexOf('：') + 1).trim();
             }else {
-                contentInnerText = contentText.innerText;
+                contentInnerText = contentText.innerText.trim();
             }
             needRemove = Res1(contentInnerText) || Res2(contentInnerText);
 
