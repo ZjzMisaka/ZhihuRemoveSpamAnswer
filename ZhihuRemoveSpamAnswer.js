@@ -63,7 +63,8 @@
     }
 
     function Res2(contentInnerText) {
-        if(contentInnerText.startsWith("世界卫生组织（WHO）根据智商将精神发育迟滞分为以下四个等级")) {
+        if(contentInnerText.startsWith("世界卫生组织（WHO）根据智商将精神发育迟滞分为以下四个等级")
+           || contentInnerText.startsWith("脑栓塞是指因异常的固态、液态、气态物体(被称作栓子)沿血循环进入脑动脉系统，引起动脉管腔闭塞，导致该动脉供血区局部脑组织的坏死，临床上表现为偏瘫、偏身麻木、讲话不清等突然发生的局源性神经功能缺损症状。")) {
             return true;
         } else {
             return false;
