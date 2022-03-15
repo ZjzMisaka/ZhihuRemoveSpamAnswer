@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         屏蔽知乎无意义回答
 // @namespace    http://tampermonkey.net/
-// @version      0.6
+// @version      0.7
 // @description  屏蔽知乎无意义回答, 包括刷屏与大量复读的回答, 嘲讽类定型文等.
 // @author       ZjzMisaka
 // @match        https://www.zhihu.com/*
@@ -26,6 +26,10 @@
             var needRemove = false;
             var contentText = richContentList[k];
             var contentInnerText = "";
+            if(contentText.classList.contains("zhihu-remove-spam-snswer-analized")) {
+                continue;
+            }
+            contentText.classList.add("zhihu-remove-spam-snswer-analized");
             if(contentText.parentElement.classList.contains('is-collapsed') && !contentText.parentElement.classList.contains('RichContent--unescapable')) {
                 contentInnerText = contentText.innerText.substring(contentText.innerText.indexOf('：') + 1).trim();
             }else {
