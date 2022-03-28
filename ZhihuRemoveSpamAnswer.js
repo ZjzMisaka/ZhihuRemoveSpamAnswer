@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         屏蔽知乎无意义回答
 // @namespace    http://tampermonkey.net/
-// @version      0.7
+// @version      0.8
 // @description  屏蔽知乎无意义回答, 包括刷屏与大量复读的回答, 嘲讽类定型文等.
 // @author       ZjzMisaka
 // @match        https://www.zhihu.com/*
@@ -69,6 +69,7 @@
     function Res2(contentInnerText) {
         if(contentInnerText.startsWith("世界卫生组织（WHO）根据智商将精神发育迟滞分为以下四个等级")
           || contentInnerText.startsWith("脑栓塞是指因异常的固态、液态、气态物体(被称作栓子)沿血循环进入脑动脉系统，引起动脉管腔闭塞，导致该动脉供血区局部脑组织的坏死，临床上表现为偏瘫、偏身麻木、讲话不清等突然发生的局源性神经功能缺损症状。")
+          || contentInnerText.startsWith("脑瘫（cerebral palsy），全称脑性瘫痪。是指婴儿出生前到出生后一个月内脑发育早期，由于多种原因导致的非进行性脑损伤综合征。主要表现为中枢性运动障碍以及姿势异常，还可伴有智力低下、癫痫、感知觉障碍、语言障碍及精神行为异常等，是引起小儿机体运动残疾的主要疾病之一。")
           || contentInnerText.startsWith("根据IQ值确定残疾等级，一共分为四级，一级是最重，四级是最轻。")) {
             return true;
         } else {
